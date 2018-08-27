@@ -9,6 +9,7 @@ import kotlinx.html.*
 fun Application.main() {
     install(DefaultHeaders)
     install(CallLogging)
+    install(StatusPages)
     routing {
         get("/") {
             call.respondHtml {
@@ -19,6 +20,7 @@ fun Application.main() {
                     p {
                         +"Hello from Ktor html sample application"
                     }
+                    throw RuntimeException("kaboom")
                     widget {
                         +"Widgets are just functions"
                     }
